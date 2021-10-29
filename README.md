@@ -1,4 +1,6 @@
 ![license](https://img.shields.io/github/license/fdrtd/simon)
+![CodeQL](https://github.com/fdrtd/simon/workflows/CodeQL/badge.svg)
+![Pylint](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/pylint.svg)
 
 
 # description
