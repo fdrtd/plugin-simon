@@ -1,4 +1,5 @@
 ![license](https://img.shields.io/github/license/fdrtd/simon)
+![Pylint](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/pylint.svg)
 
 
 # description
