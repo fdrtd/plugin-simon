@@ -19,7 +19,7 @@
 ```python
 import representation
 
-api = representation.Api("http://localhost:...")
+api = representation.Api("https://...")
 simon = api.create(protocol="Simon")
 result = simon.compute(microprotocol=...,
                        data=...,
