@@ -15,7 +15,7 @@ then, the three scripts of Alice, Bob, and Charlie may be executed simultaneousl
 """
 
 
-import representation
+import fdrtd.clients.python
 import shared
 
 
@@ -25,7 +25,7 @@ NETWORK_BOB = {**shared.NETWORK, 'myself': 1}  # Bob is no. 1 out of 0, 1, 2.
 
 if __name__ == "__main__":
 
-    api = representation.Api(shared.URL_BOB)
+    api = fdrtd.clients.python.Api(shared.URL_BOB)
     microservice = api.create(protocol="Simon")
     result = microservice.compute(microprotocol="BasicSum",
                                   data=SECRET_BOB,
