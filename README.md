@@ -1,5 +1,6 @@
 ![license](https://img.shields.io/github/license/fdrtd/simon)
 ![CodeQL](https://github.com/fdrtd/simon/workflows/CodeQL/badge.svg)
+![unittest](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/tests.svg)
 ![Pylint](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/pylint.svg)
 
 
@@ -18,7 +19,7 @@
 ```python
 import representation
 
-api = representation.Api("http://localhost:...")
+api = representation.Api("https://...")
 simon = api.create(protocol="Simon")
 result = simon.compute(microprotocol=...,
                        data=...,
