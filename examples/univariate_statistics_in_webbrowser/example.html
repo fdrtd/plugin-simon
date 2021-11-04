@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>fdrtd demo</title>
+    </head>
+    <body>
+        <h1>fdrtd demo</h1>
+        <p>server-side engine: <a href="https://github.com/fdrtd/fdrtd">fdrtd</a></p>
+        <p>protocol: <a href="https://github.com/fdrtd/simon">Simon</a></p>
+        <p>microprotocol: <b>univariate statistics</b></p>
+        <p>client-side language: <b>HTML / JavaScript</b></p>
+        <form>
+
+            <h2>step one: set up peer-to-peer-network</h2>
+            <p>Alice's server: <label><input type="url" value="http://127.0.0.1:55501" id="input_url_alice"></label></p>
+            <p>Bob's server: <label><input type="url" value="http://127.0.0.1:55502" id="input_url_bob"></label></p>
+            <p>Charlie's server: <label><input type="url" value="http://127.0.0.1:55503" id="input_url_charlie"></label></p>
+            <p>
+                <em>note: to execute the script on this website, you need to run the above servers in the background:</em><br>
+                <code>
+                    pip install fdrtd<br>
+                    pip install fdrtd-simon<br>
+                    python -m fdrtd.webserver --port==55501 &<br>
+                    python -m fdrtd.webserver --port==55502 &<br>
+                    python -m fdrtd.webserver --port==55503 &<br>
+                </code>
+            </p>
+
+            <h2>step two: select role of this instance</h2>
+            <p><label><input type="radio" name="name_role" value="0" id="input_role_alice" checked="checked"></label> Alice</p>
+            <p><label><input type="radio" name="name_role" value="1" id="input_role_bob"></label> Bob</p>
+            <p><label><input type="radio" name="name_role" value="2" id="input_role_charlie"></label> Charlie</p>
+            <p>
+                <em>note: you need to open this page in three separate browser windows and select every role once.</em><br>
+            </p>
+
+            <h2>step three: enter secret private data of this instance</h2>
+            <p><label><textarea rows="10" id="input_data">1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10</textarea></label></p>
+            <p><em>note: one number per line. number formatting based on your system and browser settings. leave default data or try integers first.</em><br></p>
+
+        </form>
+
+            <h2>step four: run the federated analysis</h2>
+            <p><label><button id="btnCompute">get the result. keep your data.</button></label></p>
+            <p><em>note: you need to press this button in each of the three browser windows once.</em><br></p>
+
+            <h2>step five: result</h2>
+            <div id="output_text">...</div>
+
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/gh/fdrtd/fdrtd/fdrtd/clients/javascript/fdrtd.js"></script>
+    <script>
+
+        const compute = async function () {
+
+            document.querySelector("#output_text").innerText = "Running ...";
+
+            // read options and input data from HTML form
+            let nodes = [document.getElementById("input_url_alice").value,
+                         document.getElementById("input_url_bob").value,
+                         document.getElementById("input_url_charlie").value]
+            let myself = parseInt(document.querySelector('input[name="name_role"]:checked').value);
+            let data = document.getElementById("input_data").value.split('\n').map(
+                function(item) { return parseInt(item); });
+
+            // run the federated analysis
+            let api = new Api({url: nodes[myself]});
+            api.create([], {protocol: "Simon"})
+                .then(microservice => {
+                    microservice.attribute("compute")
+                        .then(compute => {
+                            compute.call([], {microprotocol: "StatisticsUnivariate",
+                                              network: {nodes: nodes, myself: myself},
+                                              data: data,
+                                              tokens: ["some", "shared", "tokens"]})
+                                .then(result => {
+                                    api.download(result)
+                                        .then(dl => {
+                                            document.querySelector("#output_text").innerText = JSON.stringify(dl);
+                                        })
+                                })
+                        })
+                })
+        };
+
+        document.querySelector("#btnCompute").addEventListener("click", compute);
+
+    </script>
+
+</html>
