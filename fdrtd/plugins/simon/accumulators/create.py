@@ -8,8 +8,8 @@ def create(accumulator_name):
         return AccumulatorBasicMinimumMaximum
 
     if accumulator_name == 'SecureSum':
-        from fdrtd.plugins.simon.accumulators.accumulator_basic_sum import AccumulatorBasicSum
-        return AccumulatorBasicSum
+        from fdrtd.plugins.simon.accumulators.accumulator_basic_sum import AccumulatorSecureSum
+        return AccumulatorSecureSum
 
     if accumulator_name == 'SetIntersection':
         from fdrtd.plugins.simon.accumulators.accumulator_set_intersection import AccumulatorSetIntersection

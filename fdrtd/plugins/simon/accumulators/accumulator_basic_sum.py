@@ -1,7 +1,7 @@
 from fdrtd.plugins.simon.accumulators.accumulator_basic_function import AccumulatorBasicFunction
 
 
-class AccumulatorBasicSum(AccumulatorBasicFunction):
+class AccumulatorSecureSum(AccumulatorBasicFunction):
 
     def __init__(self, _=None):
         super().__init__(0, lambda x, y: x+y)
@@ -12,7 +12,7 @@ class AccumulatorBasicSum(AccumulatorBasicFunction):
 
     @staticmethod
     def deserialize(dictionary):
-        accumulator = AccumulatorBasicSum()
+        accumulator = AccumulatorSecureSum()
         accumulator.samples = dictionary['samples']
         accumulator.data = dictionary['sum']
         return accumulator

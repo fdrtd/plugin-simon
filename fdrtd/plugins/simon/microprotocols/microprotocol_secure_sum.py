@@ -5,7 +5,7 @@ from fdrtd.plugins.simon.caches.additive import CacheAdditive
 from fdrtd.plugins.simon.microprotocols.microprotocol import Microprotocol
 
 
-class MicroprotocolBasicSum(Microprotocol):
+class MicroprotocolSecureSum(Microprotocol):
 
     def __init__(self, bus, properties, myself):
         super().__init__(bus, properties, myself)
