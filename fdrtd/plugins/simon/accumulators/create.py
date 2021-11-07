@@ -3,7 +3,7 @@ import fdrtd
 
 def create(accumulator_name):
 
-    if accumulator_name == 'BasicMinMax':
+    if accumulator_name == 'MinimumMaximum':
         from fdrtd.plugins.simon.accumulators.accumulator_basic_minimum_maximum import AccumulatorBasicMinimumMaximum
         return AccumulatorBasicMinimumMaximum
 

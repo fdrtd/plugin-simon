@@ -66,7 +66,7 @@ class MicroprotocolStatisticsBivariate(Microprotocol):
         self.start_pipeline('SecureSum', prefix+'samples', accumulator.samples)
         self.start_pipeline('SecureSum', prefix+'geometric', accumulator.geometric)
         self.start_pipeline('SecureSum', prefix+'harmonic', accumulator.harmonic)
-        self.start_pipeline('BasicMinMax', prefix+'minmax', [{'minimum': accumulator.minimum, 'maximum': accumulator.maximum}])
+        self.start_pipeline('MinimumMaximum', prefix+'minmax', [{'minimum': accumulator.minimum, 'maximum': accumulator.maximum}])
 
     def stage_0(self, args):
         self.input = AccumulatorStatisticsBivariate.deserialize(args['input'])

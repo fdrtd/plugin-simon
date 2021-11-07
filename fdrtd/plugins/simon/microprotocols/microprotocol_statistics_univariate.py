@@ -43,7 +43,7 @@ class MicroprotocolStatisticsUnivariate(Microprotocol):
         self.start_pipeline('SecureSum', 'samples', self.input.samples)
         self.start_pipeline('SecureSum', 'geometric', self.input.geometric)
         self.start_pipeline('SecureSum', 'harmonic', self.input.harmonic)
-        self.start_pipeline('BasicMinMax', 'minmax', [{'minimum': self.input.minimum, 'maximum': self.input.maximum}])
+        self.start_pipeline('MinimumMaximum', 'minmax', [{'minimum': self.input.minimum, 'maximum': self.input.maximum}])
         return 1, None
 
     def stage_1(self, args):

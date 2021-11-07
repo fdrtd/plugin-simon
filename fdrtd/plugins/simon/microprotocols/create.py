@@ -3,9 +3,9 @@ import fdrtd
 
 def create(microprotocol):
 
-    if microprotocol == 'BasicMinMax':
-        from fdrtd.plugins.simon.microprotocols.microprotocol_basic_min_max import MicroprotocolBasicMinMax
-        return MicroprotocolBasicMinMax
+    if microprotocol == 'MinimumMaximum':
+        from fdrtd.plugins.simon.microprotocols.microprotocol_minimum_maximum import MicroprotocolMinimumMaximum
+        return MicroprotocolMinimumMaximum
 
     if microprotocol == 'SecureSum':
         from fdrtd.plugins.simon.microprotocols.microprotocol_secure_sum import MicroprotocolSecureSum

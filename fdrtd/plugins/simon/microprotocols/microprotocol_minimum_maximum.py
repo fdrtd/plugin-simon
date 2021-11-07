@@ -4,7 +4,7 @@ from fdrtd.plugins.simon.caches.additive import CacheAdditive
 from fdrtd.plugins.simon.microprotocols.microprotocol import Microprotocol
 
 
-class MicroprotocolBasicMinMax(Microprotocol):
+class MicroprotocolMinimumMaximum(Microprotocol):
 
     def __init__(self, bus, properties, myself):
         super().__init__(bus, properties, myself)
