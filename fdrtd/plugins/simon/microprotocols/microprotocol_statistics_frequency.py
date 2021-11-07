@@ -59,7 +59,7 @@ class MicroprotocolStatisticsFrequency(Microprotocol):
 
     def stage_3(self, args):
         for tag in self.tags:
-            self.start_pipeline('BasicSum', tag, self.tags[tag])
+            self.start_pipeline('SecureSum', tag, self.tags[tag])
         return 4, None
 
     def stage_final(self, args):

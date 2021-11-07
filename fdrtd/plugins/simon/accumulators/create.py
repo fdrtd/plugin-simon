@@ -7,7 +7,7 @@ def create(accumulator_name):
         from fdrtd.plugins.simon.accumulators.accumulator_basic_minimum_maximum import AccumulatorBasicMinimumMaximum
         return AccumulatorBasicMinimumMaximum
 
-    if accumulator_name == 'BasicSum':
+    if accumulator_name == 'SecureSum':
         from fdrtd.plugins.simon.accumulators.accumulator_basic_sum import AccumulatorBasicSum
         return AccumulatorBasicSum
 

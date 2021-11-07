@@ -6,13 +6,13 @@ from tests.interface import TestInterface
 class TestSimon(TestAssertions):
 
     def test_basic_sum(self):
-        self.run_two_party_test(microprotocol='BasicSum',
+        self.run_two_party_test(microprotocol='SecureSum',
                                 data_alice=123.456789,
                                 data_bob=1234.56789,
                                 correct={'sum': 1358.024679})
 
     def test_basic_sum_3p(self):
-        self.run_three_party_test(microprotocol='BasicSum',
+        self.run_three_party_test(microprotocol='SecureSum',
                                   data_alice=123.456789,
                                   data_bob=1234.56789,
                                   data_charlie=12345.6789,

@@ -57,15 +57,15 @@ class MicroprotocolStatisticsBivariate(Microprotocol):
         self.result_cache = AccumulatorStatisticsBivariate()
 
     def start_pipelines(self, prefix, accumulator):
-        self.start_pipeline('BasicSum', prefix+'uncentered_0', accumulator.moments.uncentered[0])
-        self.start_pipeline('BasicSum', prefix+'uncentered_1', accumulator.moments.uncentered[1])
-        self.start_pipeline('BasicSum', prefix+'uncentered_2', accumulator.moments.uncentered[2])
-        self.start_pipeline('BasicSum', prefix+'uncentered_3', accumulator.moments.uncentered[3])
-        self.start_pipeline('BasicSum', prefix+'uncentered_4', accumulator.moments.uncentered[4])
-        self.start_pipeline('BasicSum', prefix+'uncentered_5', accumulator.moments.uncentered[5])
-        self.start_pipeline('BasicSum', prefix+'samples', accumulator.samples)
-        self.start_pipeline('BasicSum', prefix+'geometric', accumulator.geometric)
-        self.start_pipeline('BasicSum', prefix+'harmonic', accumulator.harmonic)
+        self.start_pipeline('SecureSum', prefix+'uncentered_0', accumulator.moments.uncentered[0])
+        self.start_pipeline('SecureSum', prefix+'uncentered_1', accumulator.moments.uncentered[1])
+        self.start_pipeline('SecureSum', prefix+'uncentered_2', accumulator.moments.uncentered[2])
+        self.start_pipeline('SecureSum', prefix+'uncentered_3', accumulator.moments.uncentered[3])
+        self.start_pipeline('SecureSum', prefix+'uncentered_4', accumulator.moments.uncentered[4])
+        self.start_pipeline('SecureSum', prefix+'uncentered_5', accumulator.moments.uncentered[5])
+        self.start_pipeline('SecureSum', prefix+'samples', accumulator.samples)
+        self.start_pipeline('SecureSum', prefix+'geometric', accumulator.geometric)
+        self.start_pipeline('SecureSum', prefix+'harmonic', accumulator.harmonic)
         self.start_pipeline('BasicMinMax', prefix+'minmax', [{'minimum': accumulator.minimum, 'maximum': accumulator.maximum}])
 
     def stage_0(self, args):
