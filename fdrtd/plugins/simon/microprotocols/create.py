@@ -27,6 +27,10 @@ def create(microprotocol):
         from fdrtd.plugins.simon.microprotocols.microprotocol_statistics_frequency import MicroprotocolStatisticsFrequency
         return MicroprotocolStatisticsFrequency
 
+    if microprotocol == 'StatisticsContingency':
+        from fdrtd.plugins.simon.microprotocols.microprotocol_statistics_contingency import MicroprotocolStatisticsContingency
+        return MicroprotocolStatisticsContingency
+
     if microprotocol == 'StatisticsUnivariate':
         from fdrtd.plugins.simon.microprotocols.microprotocol_statistics_univariate import MicroprotocolStatisticsUnivariate
         return MicroprotocolStatisticsUnivariate

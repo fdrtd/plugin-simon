@@ -54,6 +54,17 @@ class TestSimon(TestAssertions):
                                          'mode': 'C',
                                          'histogram': {'A': 3, 'B': 5, 'C': 7}})
 
+    def test_statistics_contingency(self):
+        self.run_two_party_test(microprotocol='StatisticsContingency',
+                                data_alice=[('smoker', 'male'), ('non-smoker', 'female'), ('smoker', 'female'),
+                                            ('non-smoker', 'female'), ('smoker', 'male'), ('smoker', 'male')],
+                                data_bob=[('non-smoker', 'female'), ('smoker', 'female'), ('smoker', 'male'),
+                                          ('non-smoker', 'female'), ('non-smoker', 'female'), ('non-smoker', 'male')],
+                                correct={'samples': 12,
+                                             'mode': ('non-smoker', 'female'),
+                                             'table': {'non-smoker': {'male': 1, 'female': 5},
+                                                       'smoker': {'male': 4, 'female': 2}}})
+
     def test_statistics_univariate(self):
         self.run_two_party_test(microprotocol='StatisticsUnivariate',
                                 data_alice=[1.0, 2.0, 3.0, 4.0, 5.0],

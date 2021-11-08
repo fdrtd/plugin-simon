@@ -27,6 +27,10 @@ def create(accumulator_name):
         from fdrtd.plugins.simon.accumulators.accumulator_statistics_frequency import AccumulatorStatisticsFrequency
         return AccumulatorStatisticsFrequency
 
+    if accumulator_name == 'StatisticsContingency':
+        from fdrtd.plugins.simon.accumulators.accumulator_statistics_contingency import AccumulatorStatisticsContingency
+        return AccumulatorStatisticsContingency
+
     if accumulator_name == 'StatisticsUnivariate':
         from fdrtd.plugins.simon.accumulators.accumulator_statistics_univariate import AccumulatorStatisticsUnivariate
         return AccumulatorStatisticsUnivariate
