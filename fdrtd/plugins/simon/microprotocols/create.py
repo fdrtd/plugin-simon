@@ -35,4 +35,8 @@ def create(microprotocol):
         from fdrtd.plugins.simon.microprotocols.microprotocol_statistics_univariate import MicroprotocolStatisticsUnivariate
         return MicroprotocolStatisticsUnivariate
 
+    if microprotocol == 'StatisticsContingencyVertical':
+        from fdrtd.plugins.simon.microprotocols.microprotocol_statistics_contingency_vertical import MicroprotocolStatisticsContingencyVertical
+        return MicroprotocolStatisticsContingencyVertical
+
     raise fdrtd.server.exceptions.NotAvailable(microprotocol)

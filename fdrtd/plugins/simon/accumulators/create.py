@@ -35,4 +35,8 @@ def create(accumulator_name):
         from fdrtd.plugins.simon.accumulators.accumulator_statistics_univariate import AccumulatorStatisticsUnivariate
         return AccumulatorStatisticsUnivariate
 
+    if accumulator_name == 'StatisticsContingencyVertical':
+        from fdrtd.plugins.simon.accumulators.accumulator_generic_dictionary import AccumulatorGenericDictionary
+        return AccumulatorGenericDictionary
+
     raise fdrtd.server.exceptions.NotAvailable(accumulator_name)

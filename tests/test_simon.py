@@ -61,9 +61,19 @@ class TestSimon(TestAssertions):
                                 data_bob=[('non-smoker', 'female'), ('smoker', 'female'), ('smoker', 'male'),
                                           ('non-smoker', 'female'), ('non-smoker', 'female'), ('non-smoker', 'male')],
                                 correct={'samples': 12,
-                                             'mode': ('non-smoker', 'female'),
-                                             'table': {'non-smoker': {'male': 1, 'female': 5},
-                                                       'smoker': {'male': 4, 'female': 2}}})
+                                         'mode': ('non-smoker', 'female'),
+                                         'table': {'non-smoker': {'male': 1, 'female': 5},
+                                                   'smoker': {'male': 4, 'female': 2}}})
+
+    def test_statistics_contingency_vertical(self):
+        self.run_two_party_test(microprotocol='StatisticsContingencyVertical',
+                                data_alice=[('A', 'male'), ('B', 'female'), ('C', 'male'),
+                                            ('D', 'female'), ('E', 'male'), ('F', 'male')],
+                                data_bob=[('A', 'non-smoker'), ('B', 'smoker'), ('C', 'smoker'),
+                                          ('D', 'non-smoker'), ('E', 'non-smoker'), ('G', 'non-smoker')],
+                                correct={'mode': ('male', 'non-smoker'),
+                                         'table': {'male': {'non-smoker': 2, 'smoker': 1},
+                                                   'female': {'non-smoker': 1, 'smoker': 1}}})
 
     def test_statistics_univariate(self):
         self.run_two_party_test(microprotocol='StatisticsUnivariate',
