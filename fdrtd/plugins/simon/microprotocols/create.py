@@ -11,6 +11,10 @@ def create(microprotocol):
         from fdrtd.plugins.simon.microprotocols.microprotocol_secure_sum import MicroprotocolSecureSum
         return MicroprotocolSecureSum
 
+    if microprotocol == 'SecureMatrixMultiplication':
+        from fdrtd.plugins.simon.microprotocols.microprotocol_secure_matrix_multiplication import MicroprotocolSecureMatrixMultiplication
+        return MicroprotocolSecureMatrixMultiplication
+
     if microprotocol == 'SetIntersection':
         from fdrtd.plugins.simon.microprotocols.microprotocol_set_intersection import MicroprotocolSetIntersection
         return MicroprotocolSetIntersection

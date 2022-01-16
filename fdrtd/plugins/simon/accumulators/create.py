@@ -11,6 +11,10 @@ def create(accumulator_name):
         from fdrtd.plugins.simon.accumulators.accumulator_basic_sum import AccumulatorSecureSum
         return AccumulatorSecureSum
 
+    if accumulator_name == 'SecureMatrixMultiplication':
+        from fdrtd.plugins.simon.accumulators.accumulator_generic import AccumulatorGeneric
+        return AccumulatorGeneric
+
     if accumulator_name == 'SetIntersection':
         from fdrtd.plugins.simon.accumulators.accumulator_set_intersection import AccumulatorSetIntersection
         return AccumulatorSetIntersection
