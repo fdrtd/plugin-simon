@@ -43,4 +43,8 @@ def create(accumulator_name):
         from fdrtd.plugins.simon.accumulators.accumulator_generic_dictionary import AccumulatorGenericDictionary
         return AccumulatorGenericDictionary
 
+    if accumulator_name == 'StatisticsRegressionOLSVertical':
+        from fdrtd.plugins.simon.accumulators.accumulator_generic import AccumulatorGeneric
+        return AccumulatorGeneric
+
     raise fdrtd.server.exceptions.NotAvailable(accumulator_name)
