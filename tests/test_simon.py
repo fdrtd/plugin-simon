@@ -112,7 +112,7 @@ class TestSimon(TestAssertions):
         self.run_two_party_test(microprotocol='StatisticsRegressionOLSVertical',
                                 data_alice=[[[1.0, 2.0, 0.0], [2.0, 1.0, 1.0], [0.0, 4.0, 3.0]]],
                                 data_bob=[[17.0, 23.0, 45.0]],
-                                correct={'mle': [5.0, 6.0, 7.0]})
+                                correct={'mle': [[5.0, 6.0, 7.0]]})
 
     def run_two_party_test(self, microprotocol, data_alice, data_bob, correct):
 

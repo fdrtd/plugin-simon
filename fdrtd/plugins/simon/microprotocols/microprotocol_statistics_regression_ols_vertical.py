@@ -30,4 +30,4 @@ class MicroprotocolStatisticsRegressionOLSVertical(Microprotocol):
     def stage_1(self, args):
         return -1, {'inputs': 2,  # self.n,
                     'result': {
-                        'mle': args['final']['product'][0]}}
+                        'mle': args['final']['product']}}
