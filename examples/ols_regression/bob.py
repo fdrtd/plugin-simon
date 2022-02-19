@@ -15,7 +15,7 @@ then, the two scripts of Alice and Bob may be executed simultaneously.
 """
 
 
-import fdrtd.clients.python
+import fdrtd.client
 import shared
 
 
@@ -25,7 +25,7 @@ NETWORK_BOB = {**shared.NETWORK, 'myself': 1}  # Bob is no. 1 out of 0, 1.
 
 if __name__ == "__main__":
 
-    api = fdrtd.clients.python.Api(shared.URL_BOB)
+    api = fdrtd.client.Api(shared.URL_BOB)
     microservice = api.create(protocol="Simon")
     result = microservice.compute(microprotocol="StatisticsRegressionOLSVertical",
                                   data=SECRET_BOB,

@@ -1,4 +1,4 @@
-import fdrtd.clients.python
+import fdrtd.client
 
 
 class PeerToPeer:
@@ -25,9 +25,9 @@ class PeerToPeer:
 
     def send_to_node(self, body, receiver, token):
         if isinstance(self.nodes[receiver], str):
-            api = fdrtd.clients.python.Api(url=self.nodes[receiver])
+            api = fdrtd.client.Api(url=self.nodes[receiver])
         else:
-            api = fdrtd.clients.python.Api(interface=self.nodes[receiver])  # for testing purposes
+            api = fdrtd.client.Api(interface=self.nodes[receiver])  # for testing purposes
         microservice = api.create(**self.endpoint)
         microservice.peer_to_peer(callback=self.task_id,
                                   body={

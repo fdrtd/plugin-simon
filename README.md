@@ -17,9 +17,9 @@
 # client-side usage
 
 ```python
-import fdrtd.clients.python
+import fdrtd.client
 
-api = fdrtd.clients.python.Api("https://...")
+api = fdrtd.client.Api("https://...")
 simon = api.create(protocol="Simon")
 result = simon.compute(microprotocol=...,
                        data=...,
