@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install hashlib fdrtd fdrtd-server math numpy secrets time uuid
+        pip install fdrtd fdrtd-server
     - name: Run unit tests
       continue-on-error: true
       run: |
