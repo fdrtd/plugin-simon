@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install representation fdrtd anybadge
+        pip install binascii hashlib fdrtd fdrtd-server math numpy secrets time uuid
     - name: Run unit tests
       continue-on-error: true
       run: |
