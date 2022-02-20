@@ -1,29 +1,40 @@
-![license](https://img.shields.io/github/license/fdrtd/simon)
-![CodeQL](https://github.com/fdrtd/simon/workflows/CodeQL/badge.svg)
-![unittest](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/tests.svg)
-![Pylint](https://raw.githubusercontent.com/fdrtd/simon/main/.github/badges/pylint.svg)
+![license](https://img.shields.io/github/license/fdrtd/plugin-simon)
+![CodeQL](https://github.com/fdrtd/plugin-simon/workflows/CodeQL/badge.svg)
+![unittest](https://raw.githubusercontent.com/fdrtd/plugin-simon/main/.github/badges/tests.svg)
+![Pylint](https://raw.githubusercontent.com/fdrtd/plugin-simon/main/.github/badges/pylint.svg)
 
 
 # description
 
-`simon` is a **SI**mple **M**ultiparty computati**ON** protocol for `fdrtd`
+`fdrtd` is a free and open source implementation of **federated secure computing**,
+a modern microservice architecture for privacy-preserving computation:
 
-# server-side installation
+- [x] multi-protocol technology platform (e.g. secure multipary computation)
+- [x] cryptography is offloaded to the server/cloud (separation of concerns)
+- [x] client-side business logic is easy to implement (no barriers to entry)
+- [x] toolbox of specific microservices (no complex monolithic universality)
+- [x] runs in virtually any environment (compatibility and interoperability)
+- [x] OpenAPI 3.0 standard for 3rd party developers (plug & play extensions)
 
-    pip install fdrtd
-    pip install fdrtd-simon
-    python -m fdrtd.webserver --port=...
 
-# client-side usage
+# resources
 
-```python
-import fdrtd.client
+* developer documentation: [wiki](https://github.com/fdrtd/docs/wiki)
+* report issues here: [issues](https://github.com/fdrtd/plugin-simon/issues)
+* support by email: [support@fdrtd.com](mailto:support@fdrtd.com)
+* project website: [www.federatedsecure.com](https://www.federatedsecure.com)
 
-api = fdrtd.client.Api("https://...")
-simon = api.create(protocol="Simon")
-result = simon.compute(microprotocol=...,
-                       data=...,
-                       network=...,
-                       tokens=...)
-print(api.download(result))
-```
+
+# acknowledgements
+
+development of `fdrtd` is being financed by a generous grant by [Stifterverband](https://www.stifterverband.org/english).
+
+the team is also thankful for administrative and technical support by [LMU](https://www.lmu.de/en/index.html) and [LRZ](https://www.lrz.de/english/).
+
+
+# license
+
+`fdrtd` is free and open source software under the MIT license.
+see the [LICENSE](https://github.com/fdrtd/plugin-simon/tree/main/LICENSE) file for more information.
+
+`fdrtd` is a registered trademark by [bytes for life GmbH](https://www.bytesforlife.com), Munich, Germany.
