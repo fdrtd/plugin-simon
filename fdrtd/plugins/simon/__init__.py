@@ -1,7 +1,7 @@
 from fdrtd.plugins.simon.microservice import MicroserviceSimon
 
 
-def get_classes():
+def list_root_objects():
     return [
         {
             "identifiers": {
@@ -9,6 +9,6 @@ def get_classes():
                 "protocol": "Simon",
                 "version": "0.1.1"
             },
-            "class": MicroserviceSimon()
+            "object": MicroserviceSimon()
         }
     ]
