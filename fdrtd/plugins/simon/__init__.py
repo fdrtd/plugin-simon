@@ -7,7 +7,7 @@ def list_root_objects():
             "identifiers": {
                 "namespace": "fdrtd",
                 "protocol": "Simon",
-                "version": "0.1.1"
+                "version": "0.5.2"
             },
             "object": MicroserviceSimon()
         }
