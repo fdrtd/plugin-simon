@@ -13,6 +13,7 @@ class MicroserviceSimon(Microservice):
         super().__init__(bus, endpoint)
         self.tasks = {}
         self._the_cache = []
+        self.uuid = endpoint
 
     def get_task(self, task_id):
         if task_id in self.tasks:
@@ -28,7 +29,7 @@ class MicroserviceSimon(Microservice):
         if parameters is None:
             parameters = {}
 
-        task = TaskSimon(self, network, microprotocol, self.handle, parameters, task_id, parent)
+        task = TaskSimon(self, network, microprotocol, self.uuid, parameters, task_id, parent)
 
         for item in self._the_cache:
             if item['task_id'] == task_id:
@@ -41,7 +42,7 @@ class MicroserviceSimon(Microservice):
 
         task_id = invitation['task_id']
 
-        task = TaskSimon(self, network, invitation['microprotocol'], self.handle, invitation['parameters'], task_id, invitation['parent'])
+        task = TaskSimon(self, network, invitation['microprotocol'], self.uuid, invitation['parameters'], task_id, invitation['parent'])
 
         for item in self._the_cache:
             if item['task_id'] == task_id:
