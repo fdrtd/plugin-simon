@@ -1,16 +1,13 @@
 import uuid as _uuid
 import time as _time
 
-from fdrtd.server.microservice import Microservice
-
 from fdrtd.plugins.simon.task import TaskSimon
 from fdrtd.plugins.simon.sync_api import SyncApi
 
 
-class MicroserviceSimon(Microservice):
+class MicroserviceSimon:
 
     def __init__(self, bus, endpoint):
-        super().__init__(bus, endpoint)
         self.tasks = {}
         self._the_cache = []
         self.uuid = endpoint
