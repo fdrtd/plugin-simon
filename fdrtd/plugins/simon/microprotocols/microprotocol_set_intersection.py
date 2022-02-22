@@ -11,8 +11,8 @@ from fdrtd.plugins.simon.crypto.x25519x448 import X25519
 
 class MicroprotocolSetIntersection(Microprotocol):
 
-    def __init__(self, bus, properties, myself):
-        super().__init__(bus, properties, myself)
+    def __init__(self, microservice, properties, myself):
+        super().__init__(microservice, properties, myself)
 
         self.secret_key = _secrets.token_bytes(32)
 

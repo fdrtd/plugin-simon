@@ -9,8 +9,8 @@ from fdrtd.plugins.simon.accumulators.accumulator_statistics_frequency import Ac
 
 class MicroprotocolStatisticsFrequency(Microprotocol):
 
-    def __init__(self, bus, properties, myself):
-        super().__init__(bus, properties, myself)
+    def __init__(self, microservice, properties, myself):
+        super().__init__(microservice, properties, myself)
 
         self.secret_key = _secrets.token_bytes(32)
 

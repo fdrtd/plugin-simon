@@ -6,9 +6,9 @@ import fdrtd.client
 
 class Microprotocol:
 
-    def __init__(self, bus, properties, myself):
+    def __init__(self, microservice, properties, myself):
 
-        self.bus = bus
+        self.microservice = microservice
         self.uuid = properties['task_id']
         self.network = PeerToPeer({'namespace': "fdrtd", 'protocol': "Simon"},
                                   properties['task_id'], properties, myself)
@@ -58,8 +58,7 @@ class Microprotocol:
                 self.result = ret
                 if self.parent_id is not None:
                     message = {'token': self.parent_token, 'sender': self.network.myself, 'receiver': self.network.myself, 'body': ret['result']}
-                    microservice = self.bus.lut_uuid_to_repr[self.handle]
-                    task = microservice['public']['get_task'](task_id=self.parent_id)
+                    task = self.microservice.get_task(task_id=self.parent_id)
                     task.microprotocol.process(message)
             else:
                 self.stage = stage_after

@@ -7,8 +7,8 @@ from fdrtd.plugins.simon.microprotocols.microprotocol import Microprotocol
 
 class MicroprotocolSecureSum(Microprotocol):
 
-    def __init__(self, bus, properties, myself):
-        super().__init__(bus, properties, myself)
+    def __init__(self, microservice, properties, myself):
+        super().__init__(microservice, properties, myself)
 
         self.n = self.network.count
 

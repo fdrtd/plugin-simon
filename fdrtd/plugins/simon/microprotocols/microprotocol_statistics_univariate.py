@@ -5,8 +5,8 @@ from fdrtd.plugins.simon.accumulators.accumulator_statistics_univariate import A
 
 class MicroprotocolStatisticsUnivariate(Microprotocol):
 
-    def __init__(self, bus, properties, myself):
-        super().__init__(bus, properties, myself)
+    def __init__(self, microservice, properties, myself):
+        super().__init__(microservice, properties, myself)
 
         self.n = self.network.count
 

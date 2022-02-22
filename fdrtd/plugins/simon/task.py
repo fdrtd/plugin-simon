@@ -4,9 +4,9 @@ from fdrtd.plugins.simon.accumulators.create import create as create_accumulator
 
 class TaskSimon:
 
-    def __init__(self, bus, network, microprotocol, handle, parameters, task_id, parent):
+    def __init__(self, microservice, network, microprotocol, handle, parameters, task_id, parent):
 
-        self.bus = bus
+        self.microservice = microservice
         self.task_id = task_id
         self.nodes = network['nodes']
         self.myself = network['myself']
@@ -60,7 +60,7 @@ class TaskSimon:
         message = body['message']
 
         if self.microprotocol is None:
-            self.microprotocol = self.microprotocol_class(self.bus, properties, message['receiver'])
+            self.microprotocol = self.microprotocol_class(self.microservice, properties, message['receiver'])
 
         self.parent = body['task']['parent']
         self.parameters = body['task']['parameters']

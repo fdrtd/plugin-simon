@@ -28,7 +28,7 @@ class MicroserviceSimon(Microservice):
         if parameters is None:
             parameters = {}
 
-        task = TaskSimon(self.bus, network, microprotocol, self.handle, parameters, task_id, parent)
+        task = TaskSimon(self, network, microprotocol, self.handle, parameters, task_id, parent)
 
         for item in self._the_cache:
             if item['task_id'] == task_id:
@@ -41,7 +41,7 @@ class MicroserviceSimon(Microservice):
 
         task_id = invitation['task_id']
 
-        task = TaskSimon(self.bus, network, invitation['microprotocol'], self.handle, invitation['parameters'], task_id, invitation['parent'])
+        task = TaskSimon(self, network, invitation['microprotocol'], self.handle, invitation['parameters'], task_id, invitation['parent'])
 
         for item in self._the_cache:
             if item['task_id'] == task_id:
