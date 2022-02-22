@@ -7,7 +7,7 @@ from fdrtd.plugins.simon.sync_api import SyncApi
 
 class MicroserviceSimon:
 
-    def __init__(self, bus, endpoint):
+    def __init__(self):
         self.tasks = {}
         self._the_cache = []
 
