@@ -1,7 +1,7 @@
 from fdrtd.plugins.simon.microservice import MicroserviceSimon
 
 
-def get_microservices():
+def get_classes():
     return [
         {
             "identifiers": {
@@ -9,7 +9,6 @@ def get_microservices():
                 "protocol": "Simon",
                 "version": "0.1.1"
             },
-            "class": MicroserviceSimon,
-            "public": ["compute", "get_task", "create_task", "join_task", "peer_to_peer"]
+            "class": MicroserviceSimon()
         }
     ]
