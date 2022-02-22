@@ -1,5 +1,4 @@
 from fdrtd.server.bus import Bus
-from fdrtd.server.discovery import discover_microservices
 
 
 class TestInterface:
