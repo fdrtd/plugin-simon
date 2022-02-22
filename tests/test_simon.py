@@ -1,3 +1,5 @@
+import uuid as _uuid
+
 from tests.api import TestApi
 from tests.assertions import TestAssertions
 from tests.interface import TestInterface
@@ -134,9 +136,10 @@ class TestSimon(TestAssertions):
 
         invitation_a = api_a.download(task_a.invite())
 
-        api_sync.send_broadcast(invitation_a, ["invitation", "fdrtd-TestThreeParties"])
+        uuid = str(_uuid.uuid4())
+        api_sync.send_broadcast(invitation_a, uuid)
 
-        invitation_b = api_sync.receive_broadcast(["invitation", "fdrtd-TestThreeParties"])
+        invitation_b = api_sync.receive_broadcast(uuid)
         task_b = microservice_b.join_task(invitation=invitation_b, network=network_b)
 
         task_a.input(data=data_alice)
@@ -177,12 +180,13 @@ class TestSimon(TestAssertions):
 
         invitation_a = api_a.download(task_a.invite())
 
-        api_sync.send_broadcast(invitation_a, ["invitation", "fdrtd-TestThreeParties"])
+        uuid = str(_uuid.uuid4())
+        api_sync.send_broadcast(invitation_a, uuid)
 
-        invitation_b = api_sync.receive_broadcast(["invitation", "fdrtd-TestThreeParties"])
+        invitation_b = api_sync.receive_broadcast(uuid)
         task_b = microservice_b.join_task(invitation=invitation_b, network=network_b)
 
-        invitation_c = api_sync.receive_broadcast(["invitation", "fdrtd-TestThreeParties"])
+        invitation_c = api_sync.receive_broadcast(uuid)
         task_c = microservice_c.join_task(invitation=invitation_c, network=network_c)
 
         task_a.input(data=data_alice)

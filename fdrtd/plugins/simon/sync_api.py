@@ -3,9 +3,9 @@ from fdrtd.client import Api
 
 class SyncApi(Api):
 
-    def join_barrier(self, parties, party, tokens=None):
+    def join_barrier(self, parties, party, uuid):
         ms = self.create(plugin="Sync", microservice='Barrier')
-        sync = ms.create(tokens=tokens)
+        sync = ms.create(uuid=uuid)
         sync.arrive(party=party)
         while sync.arrived() < parties:
             pass
@@ -14,28 +14,23 @@ class SyncApi(Api):
             pass
         return sync.reset()
 
-    def send_broadcast(self, message, tokens=None):
+    def send_broadcast(self, message, uuid):
         ms = self.create(plugin="Sync", microservice='Broadcast')
-        sync = ms.create(tokens=tokens)
-        return sync.send(message=message)
+        return ms.send(uuid=uuid, message=message)
 
-    def receive_broadcast(self, tokens=None):
+    def receive_broadcast(self, uuid):
         ms = self.create(plugin="Sync", microservice='Broadcast')
-        sync = ms.create(tokens=tokens)
-        rec = sync.receive()
+        rec = ms.receive(uuid=uuid)
         if rec is None:
             return None
         return self.download(rec)
 
-    def clear_broadcast(self, tokens=None):
+    def clear_broadcast(self, uuid):
         ms = self.create(plugin="Sync", microservice='Broadcast')
-        sync = ms.create(tokens=tokens)
-        return sync.delete()
+        return ms.delete(uuid=uuid)
 
-    def wait_for_broadcast(self, tokens=None):
-        ms = self.create(plugin="Sync", microservice='Broadcast')
-        sync = ms.create(tokens=tokens)
-        rec = None
-        while rec is None:
-            rec = sync.receive()
-        return self.download(rec)
+    def wait_for_broadcast(self, uuid):
+        response = None
+        while not response:
+            response = self.receive_broadcast(uuid=uuid)
+        return response
