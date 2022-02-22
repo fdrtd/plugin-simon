@@ -23,7 +23,6 @@ class Microprotocol:
         else:
             self.parent_id = properties['parent']['parent_id']
             self.parent_token = properties['parent']['parent_token']
-        self.handle = properties['handle']
         self.myself = myself
 
     def register_cache(self, argument, cache):

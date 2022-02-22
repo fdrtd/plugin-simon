@@ -4,7 +4,7 @@ from fdrtd.plugins.simon.accumulators.create import create as create_accumulator
 
 class TaskSimon:
 
-    def __init__(self, microservice, network, microprotocol, handle, parameters, task_id, parent):
+    def __init__(self, microservice, network, microprotocol, parameters, task_id, parent):
 
         self.microservice = microservice
         self.task_id = task_id
@@ -13,7 +13,6 @@ class TaskSimon:
         self.microprotocol_name = microprotocol
         self.microprotocol_class = create_microprotocol(microprotocol)
         self.microprotocol = None
-        self.handle = handle
         self.parent = parent
         self.parameters = parameters
         self.accumulator = create_accumulator(microprotocol)()
@@ -56,7 +55,7 @@ class TaskSimon:
         return self.microprotocol.get_result()
 
     def peer_to_peer(self, body=None):
-        properties = {**body['task'], 'task_id': self.task_id, 'handle': self.handle}
+        properties = {**body['task'], 'task_id': self.task_id}
         message = body['message']
 
         if self.microprotocol is None:
