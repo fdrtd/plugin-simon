@@ -1,4 +1,5 @@
 import fdrtd
+import fdrtd.server.exceptions
 
 
 def create(microprotocol):
