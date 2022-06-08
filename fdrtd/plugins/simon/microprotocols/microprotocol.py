@@ -1,7 +1,7 @@
 import uuid as _uuid
 
 from fdrtd.plugins.simon.peer_to_peer import PeerToPeer
-import fdrtd.client
+import representation
 
 
 class Microprotocol:
@@ -75,9 +75,9 @@ class Microprotocol:
     def derive_task(self, network, microprotocol, parent_id, token):
         node = network['nodes'][network['myself']]
         if isinstance(node, str):
-            api = fdrtd.client.Api(url=node)
+            api = representation.Api(url=node)
         else:
-            api = fdrtd.client.Api(interface=node)  # for local testing
+            api = representation.Api(interface=node)  # for local testing
         microservice = api.create(namespace="fdrtd", protocol="Simon")
         return microservice.create_task(microprotocol=microprotocol, network=network,
                                         parent={'parent_id': parent_id, 'parent_token': token},
